@@ -1,0 +1,46 @@
+<form action="./<%- sanpham._id %>" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
+    <div class="form-group">
+        <input type="hidden" name="idP" value="<%- sanpham._id %>">
+    </div>
+    <div class="form-group">
+        <label for="tensp">Tên sản phẩm</label>
+        <input type="text" class="form-control" name="tensp" value="<%- sanpham.Name %>" placeholder="Tên sản phẩm" required>
+        <div class="invalid-feedback" style="width: 100%;">
+            Bạn chưa nhập tên sản phẩm!!!
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="danhmuc">Danh mục sản phẩm</label>
+        <select class="custom-select d-block w-100" id="danhmuc" name="danhmuc" style="color:black" required>';
+		<option value="">Choose...</option>
+        <% danhmuc.forEach(function(dm){ %>
+            <% if(dm._id.equals(sanpham.Category_id)){ %>
+                <option value="<%- dm._id %>" selected><%- dm.Title %></option>
+            <% }else{ %>
+            <option value="<%- dm._id %>"><%- dm.Title %></option>
+        <% }}); %>
+        </select>
+        <div class="invalid-feedback">
+            Bạn chưa chọn danh mục sản phẩm!!!
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="gia">Giá</label>
+        <input type="text" class="form-control" name="txtgia" id="txtgia" value="<%- sanpham.Cost %>" placeholder="100000" required>
+        <div class="invalid-feedback">
+            Giá không được để trống!!!
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="hinhanh">Hình sản phẩm</label> <br>
+        <img height="225" src="../../../images/<%- sanpham.Image %>" >
+        <input name="spImage" type="file" class="card-img" id="spImage">
+    </div>
+    <div class="form-group">
+        <label for="mota">Mô tả</label>
+        <textarea name="txtmota" id="txtmota" class="form-control" id="textarea"><%- sanpham.Mota %></textarea>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-lg btn-primary" value="Edit"/>
+    </div>
+</form>

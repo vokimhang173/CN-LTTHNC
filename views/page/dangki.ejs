@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <%- include('../layouts/head'); %>
+    <script src="/javascript/thanhtoan.js"></script>
+    <style>
+        #er1, #er2, #er3, #er4{
+            color: red;
+            font-style: italic;
+        }
+    </style>
+    <script>
+        function checkmatkhau() {
+            var regpwd = document.getElementById("pwd").value;
+            var check = document.getElementById("checkpwd").value;
+            if (regpwd != check) {
+                document.getElementById("er3").innerHTML = "(*)Mật khẩu không đúng!!";
+            }
+            else {
+                document.getElementById("er3").innerHTML = "";
+            }
+        }
+        function kiemtraho() {
+            var regname = /^[A-Z]+[A-Za-z]*(\s[A-Z]+[A-Za-z]*)*$/;
+            var ten = document.getElementById("firstName").value;
+            if (regname.test(ten) == false) {
+                document.getElementById("er1").innerHTML = "(*)Phải bắt đầu bằng ký tự in hoa!!";
+            }
+            else {
+                document.getElementById("er1").innerHTML = "";
+            }
+        }
+        function kiemtraten() {
+            var regname = /^[A-Z]+[A-Za-z]*(\s[A-Z]+[A-Za-z]*)*$/;
+
+            var ten = document.getElementById("lastName").value;
+
+            if (regname.test(ten) == false) {
+                document.getElementById("er2").innerHTML = "(*)Phải bắt đầu bằng ký tự in hoa!!";
+            }
+            else {
+                document.getElementById("er2").innerHTML = "";
+            }
+        }
+        function checktel() {
+            var regtel = /^[0-9]/;
+            var tel = document.getElementById("phone").value;
+            if (regtel.test(tel) == false) {
+                document.getElementById("er4").innerHTML = "(*)Số điện thoại không đúng!!";
+            }
+            else {
+                document.getElementById("er4").innerHTML = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="d-flex align-items-center px-md-4 bg-dark shadow-sm fixed-top">
+        <h5 class="my-0 mr-md-auto" style="color: white">Chào mừng bạn đến với VOKALA</h5>
+        <nav class="navbar-expand-lg  p-0 shadow">
+            <ul class="navbar-nav col-md-3 col-lg-3">                
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link" href="/">
+                        <i class="bi bi-house-fill"></i>
+                        Trang chủ
+                    </a>
+                </li>
+                <li class="text-nowrap">
+                    <a class="nav-link" href="#">Đăng nhập</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="text-center">
+            <h1 class="h3 font-weight-normal my-5">ĐĂNG KÍ TÀI KHOẢN</h1>
+        </div>
+        <form class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="username">Tên đăng nhập</label>
+                <input type="text" class="form-control" id="username" placeholder="Tên đăng nhập" required>
+                <div class="invalid-feedback" style="width: 100%;">
+                Bạn chưa nhập tên đăng nhập!!!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Mật khẩu</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Mật khẩu" value="" required>
+                <div class="invalid-feedback" style="width: 100%;">
+                    Bạn chưa nhập mật khẩu!!!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="checkpwd">Nhập lại mật khẩu</label>
+                <input type="password" class="form-control" id="checkpwd" placeholder="Nhập lại mật khẩu" value="" required onblur="checkmatkhau()">
+                <div class="invalid-feedback" style="width: 100%;">
+                    Bạn chưa nhập tên đăng nhập!!!
+                </div>
+                <span id="er3"></span>
+            </div>
+            <hr>
+            <div class="text-center">
+                <h1 class="h3 font-weight-normal">THÔNG TIN CÁ NHÂN</h1> 
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 mt-3">
+                        <label for="firstName">Họ</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Họ" value="" required onblur="kiemtraho()">
+                        <div class="invalid-feedback">
+                            Bạn chưa nhập họ!!!
+                        </div>
+                        <span id="er1"></span>
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <label for="lastName">Tên</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Tên" value="" required onblur="kiemtraten()">
+                        <div class="invalid-feedback">
+                            Bạn chưa nhập tên!!!
+                        </div>
+                        <span id="er2"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="birthday">Ngày sinh</label>
+                <input type="date" class="form-control" id="birthday" required>
+                <div class="invalid-feedback">
+                    Ngày sinh không được để trống!!!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="gender">Giới tính</label>
+                <div class="custom-control custom-radio">
+                    <input id="Nam" name="gender" type="radio" class="custom-control-input" value="Nam" checked required>
+                    <label class="custom-control-label" for="Nam">Nam</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input id="Nu" name="gender" type="radio" class="custom-control-input" value="Nữ" required>
+                    <label class="custom-control-label" for="Nu">Nữ</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input id="Khac" name="gender" type="radio" class="custom-control-input" value="Khác" required>
+                    <label class="custom-control-label" for="Khac">Khác</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                <div class="invalid-feedback">
+                    Email không được để trống!!!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Điện thoại</label>
+                <input type="tel" class="form-control" id="phone" placeholder="0123456789" required onblur="checktel()">
+                <div class="invalid-feedback">
+                    Điện thoại không được để trống!!!
+                </div>
+                <span id="er4"></span>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 mt-3">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Đăng kí</button>
+                  
+                </div>
+                <div class="col-md-4"></div>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+    </div>
+    </div>
+</body>
+</html>

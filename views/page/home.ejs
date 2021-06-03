@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include('../layouts/head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('header'); %>
+    </header>
+    <div class="container-fluid my-5">
+        <main role="main">
+            <section style="padding: 10px;">
+                <div class="row">
+                <div class="col-md-1">
+                    <img src="../images/icon.jpg" style="width:92px; height:92px" />
+                </div>
+                <div class="col-md-2" style="padding-top:14px; color:deeppink">
+                    <h1>SAKURA</h1>
+                    <h5>Nét đẹp Việt</h5>
+                </div>
+                <div class="col-md-9" style="padding-top:40px">
+                    <form class="form-inline mt-2 mt-md-0" method="GET" action="/search" role="search">
+                        <div class="input-group ">
+                            <input class="form-control mr-sm-2" style="border-radius: 50px;" name="f" id="f" type="search" size="90" placeholder="Bạn muốn tìm gì?">
+
+                            <button class="btn btn-default" type="submit">
+                                <svg width="1.6em" height="1.6em" style="color:deeppink" viewBox="0 0 16 16"
+                                    class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                    <path fill-rule="evenodd"
+                                        d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </section>
+            <%- include(page); %>
+        </main>
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <%- include('../layouts/footer'); %>
+        </footer>
+    </div>
+</body>
+
+</html>

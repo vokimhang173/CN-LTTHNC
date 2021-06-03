@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Nhập thông tin danh mục
+    </h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        
+        <a href="./"><button type="button" class="btn btn-sm btn-outline-secondary">
+                Trở về
+            </button></a>
+    </div>
+</div>
+<form action="./add" method="POST" class="needs-validation" novalidate>
+    <div class="form-group">
+        <label for="tendm">Tên sản phẩm</label>
+        <input type="text" class="form-control" name="tendm" id="tendm" placeholder="Tên sản phẩm" required>
+        <div class="invalid-feedback" style="width: 100%;">
+            Bạn chưa nhập tên sản phẩm!!!
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-lg btn-primary" value="Add new" />
+    </div>
+</form>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('../layouts/head'); %>
+        <link href="/stylesheets/dashboard.css" rel="stylesheet" type="text/css">
+        <script src="/javascripts/thanhtoan.js"></script>
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }
+
+            #er3 {
+                color: red;
+                font-style: italic;
+            }
+        </style>
+        <script>
+            function update_query_parameters(key, val) {
+                uri = window.location.href
+                    .replace(RegExp("([?&]"+key+"(?=[=&#]|$)[^#&]*|(?=#|$))"), "&"+key+"="+encodeURIComponent(val))
+                    .replace(/^([^?&]+)&/, "$1?");
+                return uri;
+                }
+        </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/admin">Trang Quản Trị</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+            data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <form id="form1" name="form1" method="get" action="/admin/logout">
+                    <input class="btn btn-sm btn-outline-secondary" type="submit" name="nut" id="submit"
+                        value="Đăng xuất" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất?')">
+                </form>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <%- include('menu_admin'); %>
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4"> 
+                    <%- include(page); %>
+                </main>
+        </div>
+    </div>
+</body>
+
+</html>

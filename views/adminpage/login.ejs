@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include('../layouts/head'); %>
+    <link href="/stylesheets/dangnhap.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="d-flex align-items-center px-md-4 bg-dark shadow-sm fixed-top">
+        <h5 class="my-0 mr-md-auto" style="color: white">Chào mừng bạn đến với SAKURA</h5>
+        <nav class="navbar-expand-lg  p-0 shadow">
+            <ul class="navbar-nav col-md-3 col-lg-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link" href="/">
+                        <i class="bi bi-house-fill"></i>
+                        Trang chủ
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <form class="form-signin" method="POST">
+            <div class="text-center mb-4">
+                <h1 class="h3 mb-3 font-weight-normal">Thông tin đăng nhập</h1>
+            </div>
+            <div class="form-label-group">
+                <input type="text" name="username" id="username" class="form-control" placeholder="Tên đăng nhập" required autofocus>
+                <label for="username">Tên đăng nhập</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">Mật khẩu</label>
+            </div>
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Nhớ tài khoản
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Đăng nhập</button>
+            <div class="text-center mb-4">
+                <h6>Bạn chưa có tài khoản?
+                    <a href="/dangki">Đăng kí</a>
+                </h6>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

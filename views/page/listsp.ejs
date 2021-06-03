@@ -1,0 +1,28 @@
+<div class="album py-5 bg-light">
+  
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      
+      
+      <div class="row portfolio-container">
+        <% danhsach.forEach(function(sp){ %>
+          
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <img src="../images/<%- sp.Image %>" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <div class="row">
+            <h4 class="col-lg-10">
+              <%- sp.Name %>
+            </h4>
+            <a href="../images/<%- sp.Image %>" data-gall="portfolioGallery" class="venobox preview-link" title="<%- sp.Name %>"><i class="bi bi-plus"></i></a>
+            <a href="/detail/<%- sp._id %>" class="details-link" title="More Details"><i class="bi bi-link"></i></a>
+          </div>
+          </div>
+        </div>
+
+          <% }); %>  
+      </div>
+      <%- include('phantrang'); %>
+      
+    </div>
+  </section>
